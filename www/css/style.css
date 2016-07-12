@@ -1,0 +1,14 @@
+/* Empty. Add your own CSS if you like */
+.img{
+
+	width:335px;
+	height:200px;
+}
+
+@media only screen and (min-width: 500px) {
+    .img{
+    	width:100% !important;
+		height:75% !important;
+		margin:0% 5%!important;
+    }
+}

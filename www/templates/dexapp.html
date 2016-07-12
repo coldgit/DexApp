@@ -1,0 +1,23 @@
+<ion-view  view-title="DexApp">
+  <ion-content padding=true >
+
+<!--<div class="row list">
+            <button  ng-click="login()" type="button" class="col col-30  button  button-dark button-outline">Login</button>
+            <button ng-click="register()" type="button" class="col col-offsetcol-30 button  button-dark button-outline">Register</button>
+</div>--->
+
+
+<img width="50%" height="50%" class="col col-offset-30" ng-src="/img/logo.png">
+
+
+
+
+<div class="row list"  ng-repeat="vid in video">
+	<div   class=" col col-90 " >
+		<img class="img" ng-src="{{vid.src}}">
+	</div>
+
+</div>
+
+  </ion-content>
+</ion-view>
