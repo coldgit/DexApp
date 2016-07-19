@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic','starter.controllers','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -49,27 +49,46 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-   
+
     .state('app.dexapp', {
       url: '/dexapp',
       views: {
         'menuContent': {
           templateUrl: 'templates/dexapp.html',
-          controller:'coverCtrl',
+          controller:'Dash_Ctrl',
         }
       }
     })
 
-    .state('app.temp-vid-list', {
-      url: '/temp-vid-list',
-      views: {
+
+    .state('app.anime',{
+      url:'/anime/:_url',
+      views:{
         'menuContent': {
-          templateUrl: 'templates/temp-vid-list.html',
-          controller:'coverCtrl',
+          templateUrl: 'templates/anime.html',
+          controller:'singleCtrl',
         }
       }
+
     })
 
+    .state('app.epi',{
+      url:'/anime/:p_url/:_epi',
+      views:{
+        'menuContent': {
+          templateUrl: 'templates/epi.html',
+          controller:'epiCtrl'  ,
+        }
+      }
+
+    })
+
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller:'AppCtrl',
+
+    })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/dexapp');
+    $urlRouterProvider.otherwise('/home');
 });

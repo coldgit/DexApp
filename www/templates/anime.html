@@ -1,0 +1,15 @@
+<ion-view view-title="{{anime_pick.title}}">
+<ion-content padding=true>
+	<div class="row">
+		<img width="50%" height="50%" class="col col-offset-30" ng-src="{{anime_pick.ani_banner}}">
+	</div>
+	<div class="row">
+			<p >{{anime_pick.desc}}</p>
+	</div>
+	<ion-list  ng-repeat="vid in anime_pick.epi">
+		<ion-item menu-close href="#/app/anime/{{anime_pick.ani_url}}/{{vid.id}}">
+		Episode - {{vid.id}}
+		</ion-item>
+	</ion-list>
+</ion-content>
+</ion-view>

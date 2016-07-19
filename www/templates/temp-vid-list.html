@@ -5,13 +5,21 @@
 		<img width="50%" height="50%" class="col col-offset-30" ng-src="{{video[5].src}}">
 	</div>
 
-	<div class="row">	
+	<div class="row">
 		<h3 class=" title">{{video[5].cover}}</h3>
 	</div>
 
 	<div class="row">
 			<p >{{video[5].desc}}</p>
 	</div>
-
+	<ion-list  ng-repeat="vid in video[5].epi">
+		<ion-item menu-close href="#">
+		{{video[5].cover}}Episode - {{vid.id}}
+		</ion-item>
+	</ion-list>
+<!--	<ul class="list">
+		<li class="item"><a href="#"></a>
+		</li>
+	</ul>--->
 	</ion-content>
 </ion-view>

@@ -1,14 +1,19 @@
 /* Empty. Add your own CSS if you like */
 .img{
 
-	width:335px;
-	height:200px;
-}
 
+width: 125px;
+height: 125px;
+}
+.in-b{
+	display: inline-block;
+}
+@media only screen and (min-width: 320px) {
+	.img{
+		width:140% !important;
+}
 @media only screen and (min-width: 500px) {
     .img{
     	width:100% !important;
 		height:75% !important;
-		margin:0% 5%!important;
-    }
-}
+	}
