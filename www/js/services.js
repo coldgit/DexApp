@@ -211,7 +211,8 @@ angular.module('starter.services', [])
                  {
                    if(ani_selected.epi[x].id === parseInt(epi))
                    {
-                     return ani_selected.epi[x].src;
+                     var out ={src:ani_selected.epi[x].src,title:ani_selected.title +" - "+ani_selected.epi[x].id};
+                     return out;
                    }
                  }
                 return null;

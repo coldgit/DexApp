@@ -1,6 +1,7 @@
-<ion-view >
+<ion-view view-title="{{anime_pick_epi.title}}">
 <ion-content padding=true>
-  	{{check_ok}}
-	{{anime_pick_epi}}
+    <video controls class="video_content">
+	    <source src="{{anime_pick_epi.src}}" type='video/mp4' />
+	</video>
 </ion-content>
 </ion-view>
