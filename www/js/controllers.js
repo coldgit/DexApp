@@ -81,12 +81,16 @@ angular.module('starter.controllers', [])
 //.controller('ProfileCtrl', function($scope, $stateParams , Profiles) {
 	//$scope.profile = Profiles.get($stateParams.profileId);
 //})
-.controller('Dash_Ctrl',function($scope, $stateParams , Anime_list) {
-	$scope.dash_list = Anime_list.all();
+.controller('Dash_Ctrl',function($scope, $stateParams ,$rootScope, Anime_list) {
+  Anime_list.all();
+	$scope.dash_list = $rootScope.animes;
+  console.log($scope.dash_list);
 })
 
-.controller('singleCtrl',function($scope, $stateParams , Anime_list) {
-	$scope.anime_pick = Anime_list.get($stateParams._url);
+.controller('singleCtrl',function($scope, $rootScope,$stateParams , Anime_list) {
+  Anime_list.get($stateParams._url);
+	$rootScope.anime;
+  $rootScope.episodes;
 })
 
 .controller('epiCtrl',function($scope, $stateParams , Anime_list) {

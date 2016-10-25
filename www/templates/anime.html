@@ -1,14 +1,14 @@
-<ion-view view-title="{{anime_pick.title}}">
+<ion-view view-title="{{anime.ani_title}}">
 <ion-content padding=true>
 	<div class="row">
-		<img width="50%" height="50%" class="col col-offset-30" ng-src="{{anime_pick.ani_banner}}">
+		<img width="50%" height="50%" class="col col-offset-30" ng-src="http://localhost/DexApp-Server/{{anime.img_src}}">
 	</div>
 	<div class="row">
-			<p >{{anime_pick.desc}}</p>
+			<p >{{anime.summary}}</p>
 	</div>
-	<ion-list  ng-repeat="vid in anime_pick.epi">
+	<ion-list  ng-repeat="vid in episodes">
 		<ion-item menu-close href="#/app/anime/{{anime_pick.ani_url}}/{{vid.id}}">
-		Episode - {{vid.id}}
+		Episode - {{episodes.episode}}
 		</ion-item>
 	</ion-list>
 </ion-content>

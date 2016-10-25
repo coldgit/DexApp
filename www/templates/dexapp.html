@@ -2,10 +2,10 @@
   <ion-content padding=false >
 
     <ion-list>
-      <ion-item ng-repeat="anime in dash_list"
+      <ion-item ng-repeat="anime in animes"
                 class="col-50  in-b"
                 href="#/app/anime/{{anime.ani_url}}">
-		   <img class="img" ng-src="{{anime.ani_banner}}">
+		   <img class="img" ng-src="http://localhost/DexApp-Server/{{anime.img_src}}">
       </ion-item>
     </ion-list>
   </ion-content>
