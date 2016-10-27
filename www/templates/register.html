@@ -8,23 +8,44 @@
   </ion-header-bar>
 
   <ion-content >
-    <form ng-submit="doRegister()">
+    <form name="regForm" ng-submit="doRegister()">
       <div class="list">
-           <label class="item item-input item-floating-label">
-             <span class="input-label">Username</span>
-             <input type="text" ng-model="regData.username" placeholder="Username">
+  
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Username 
+             <span class="user-error"ng-show="regForm.username.$error.required"> is required!.</span>
+
+             </span>
+             <input name="username"type="text" ng-model="regData.username"placeholder="Username" required> 
            </label>
-           <label class="item item-input item-floating-label">
-             <span class="input-label">Password</span>
-             <input type="text" ng-model="regData.password"placeholder="Password">
+  
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Password <span  class="user-error" ng-show="regForm.pass.$error.required">is required!.</span></span>
+             <input type="password" name="pass" ng-model="regData.password" placeholder="Password" required>
            </label>
-           <label class="item item-input item-floating-label">
-             <span class="input-label">Email</span>
-             <input type="text" ng-model="regData.email"placeholder="johndoe@hotmail.com">
+            
+          <label class="item item-input item-stacked-label">
+             <span class="input-label">Retype-Password   
+             <span ng-if="!passwordmatch" class="user-error">Mismatch</span></span>
+             <input type="password" name="repass" ng-model="regData.repassword" ng-keyup="check(regData)" placeholder="Retype-Password" required>
+           </label>
+          
+           <label class="item item-input item-stacked-label">
+             <span class="input-label">Email
+              <span  class="user-error"ng-show="regForm.email.$error.required">is required!.</span>
+              <span ng-show="!regForm.email.$error.required">
+              <span class="user-error"ng-show="regForm.email.$invalid">is not valid!.</span></span>
+              </span>
+             <input type="email" name="email"ng-model="regData.email"placeholder="johndoe@hotmail.com" required>
            </label>
          </div>
+
+    <div class="padding">
+         
+         
+    </div>
         <label class="item">
-          <button class="button button-block button-positive button-outline" type="submit">Register</button>
+          <button ng-disabled=""class="button button-block button-positive button-outline" type="submit">Register</button>
         </label>
       </div>
     </form>

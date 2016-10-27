@@ -1,7 +1,27 @@
-<ion-view view-title="{{anime_pick_epi.title}}">
+<ion-view menu-close view-title="{{anime_pick_epi.title+comment.$error.required}}">
 <ion-content padding=true>
     <video controls class="video_content">
 	    <source src="{{anime_pick_epi.src}}" type='video/mp4' />
 	</video>
+	<div class="row">
+		<div class="col col-50 i-con-center">
+			<a href="#/app/anime/{{anime_pick_epi.prev}}"><i class="i-con icon icon-left ion-chevron-left"></i></a></div>
+		<div class="col col-50 i-con-center"><a href="#/app/anime/{{anime_pick_epi.next}}"><i class="i-con icon icon-right ion-chevron-right"></i></a></div>
+	</div>
+	<ion-list  ng-repeat="comment in anime_pick_epi.cmnt">
+		<li class="item item-avatar">
+			<img src="img/netero.png">	
+			<h2>{{comment.name}}</h2>
+			<p>{{comment.msg}}</p>
+		</li>
+	</ion-list>
+
 </ion-content>
+<ion-footer-bar class="item-input-inset">
+			<label class="item-input-wrapper">
+				<input type="text" ng-model="comment" placeholder="Comment here...!" required>
+			</label>
+			<button ng-disabled="comment.$error.required"class="button button-small"ng-click="comment=anime_pick_epi.newcmnt(username,comment)">Submit</button>
+</ion-footer-bar>
+	
 </ion-view>

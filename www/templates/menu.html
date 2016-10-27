@@ -18,16 +18,22 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/dexapp">
-          Home
+        <ion-item menu-close class="s-menu-i"title="home" href="#/app/dexapp">
+          <i class="icon icon-large ion-home"></i><h2 class="in-b">Home</h2>
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+
+        <ion-item menu-close  class="s-menu-i"title="account" href="#/app/account" ng-click=" bookmarks(userInfos.username)">
+          <i class="icon icon-large ion-android-contact"></i><h2 class="in-b">Account</h2>
         </ion-item>
-        <ion-item menu-close href="#/app/about">
-          About
+           
+        <ion-item menu-close class="s-menu-i"title="about" href="#/app/about">
+          <i class="icon icon-large ion-information-circled"></i><h2 class="in-b">About</h2>
         </ion-item>
         
+        <ion-item menu-close class="s-menu-i"title="about" ng-click="logout()">
+          <i class="icon icon-large ion-power"></i><h2 class="in-b">Logout</h2>
+        </ion-item>
+  
       </ion-list>
     </ion-content>
   </ion-side-menu>

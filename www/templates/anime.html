@@ -4,7 +4,8 @@
 		<img width="50%" height="50%" class="col col-offset-30" ng-src="{{anime_pick.ani_banner}}">
 	</div>
 	<div class="row">
-			<p >{{anime_pick.desc}}</p>
+		<i class="icon s-menu-i ion-star" ng-click="add_bookmarks(username,anime_pick.ani_url)"></i>
+		<p >{{anime_pick.desc}}</p>
 	</div>
 	<ion-list  ng-repeat="vid in anime_pick.epi">
 		<ion-item menu-close href="#/app/anime/{{anime_pick.ani_url}}/{{vid.id}}">

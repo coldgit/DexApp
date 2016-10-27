@@ -1,8 +1,13 @@
 <ion-view  view-title="DexApp-Dashboard">
   <ion-content padding=false >
-
+  	<div class="list list-inset">
+  		<label class="item item-input">
+  			<i class="icon ion-search placeholder-icon"></i>
+  			<input type="text" ng-model="search.title"placeholder="Search"></input>
+  		</label>
+  	</div>
     <ion-list>
-      <ion-item ng-repeat="anime in dash_list"
+      <ion-item ng-repeat="anime in dash_list | filter:search"
                 class="col-50  in-b"
                 href="#/app/anime/{{anime.ani_url}}">
 		   <img class="img" ng-src="{{anime.ani_banner}}">

@@ -1,3 +1,4 @@
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -6,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic','starter.controllers','starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,Anime_list , $state, $rootScope, $location) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +20,13 @@ angular.module('starter', ['ionic','starter.controllers','starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+     $rootScope.userInfos = {login:false}; 
+       if($rootScope.userInfos.login == false)
+       {
+        console.log($rootScope.userInfos);
+          $location.path('home');
+       }   
+   // Anime_list.setUpDatabase();
   });
 })
 
@@ -29,20 +37,11 @@ angular.module('starter', ['ionic','starter.controllers','starter.services'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
+    controller: 'AppCtrl',
   })
 
   .state('app.about', {
-      url: '/about',
+      url: '/about', 
       views: {
         'menuContent': {
           templateUrl: 'templates/about.html'
@@ -68,7 +67,8 @@ angular.module('starter', ['ionic','starter.controllers','starter.services'])
           templateUrl: 'templates/anime.html',
           controller:'singleCtrl',
         }
-      }
+      },
+
 
     })
 
@@ -78,6 +78,18 @@ angular.module('starter', ['ionic','starter.controllers','starter.services'])
         'menuContent': {
           templateUrl: 'templates/epi.html',
           controller:'epiCtrl'  ,
+        }
+      }
+
+    })
+
+
+    .state('app.account',{
+      url:'/account',
+      views:{
+        'menuContent': {
+          templateUrl: 'templates/account.html',
+          controller:'AppCtrl'  ,
         }
       }
 
