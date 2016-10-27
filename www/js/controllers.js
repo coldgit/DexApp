@@ -88,6 +88,7 @@ angular.module('starter.controllers', [])
     }
     //Simulate a login delay. Remove this and replace with your login
     // code if using a login system
+<<<<<<< HEAD
     
   }
 
@@ -163,6 +164,43 @@ angular.module('starter.controllers', [])
     $scope.anime_pick = Anime_list.get($stateParams._url);
     console.log($scope.anime_pick);
  
+=======
+    $timeout(function() {
+      $scope.closeReg();
+      $scope.login();
+
+    }, 1000);
+  };
+
+
+  // Perform the login action when the user submits the login form
+  $scope.doLogin = function() {
+    console.log('Doing login', $scope.loginData);
+
+    // Simulate a login delay. Remove this and replace with your login
+    // code if using a login system
+    $timeout(function() {
+      $scope.closeLogin();
+      $location.path('app/dexapp');
+
+    }, 1000);
+  };
+})
+//.controller('coverCtrl',function($scope){});
+//.controller('ProfileCtrl', function($scope, $stateParams , Profiles) {
+	//$scope.profile = Profiles.get($stateParams.profileId);
+//})
+.controller('Dash_Ctrl',function($scope, $stateParams ,$rootScope, Anime_list) {
+  Anime_list.all();
+	$scope.dash_list = $rootScope.animes;
+  console.log($scope.dash_list);
+})
+
+.controller('singleCtrl',function($scope, $rootScope,$stateParams , Anime_list) {
+  Anime_list.get($stateParams._url);
+	$rootScope.anime;
+  $rootScope.episodes;
+>>>>>>> 3c00ecb467e2283d0728ab9273b65c5a1a8d2116
 })
 
 .controller('epiCtrl',function($scope, $stateParams , Anime_list,$rootScope,$location) {

@@ -1,15 +1,19 @@
-<ion-view view-title="{{anime_pick.title}}">
+<ion-view view-title="{{anime.ani_title}}">
 <ion-content padding=true>
 	<div class="row">
-		<img width="50%" height="50%" class="col col-offset-30" ng-src="{{anime_pick.ani_banner}}">
+		<img width="50%" height="50%" class="col col-offset-30" ng-src="http://localhost/DexApp-Server/{{anime.img_src}}">
 	</div>
 	<div class="row">
+<<<<<<< HEAD
 		<i class="icon s-menu-i ion-star" ng-click="add_bookmarks(username,anime_pick.ani_url)"></i>
 		<p >{{anime_pick.desc}}</p>
+=======
+			<p >{{anime.summary}}</p>
+>>>>>>> 3c00ecb467e2283d0728ab9273b65c5a1a8d2116
 	</div>
-	<ion-list  ng-repeat="vid in anime_pick.epi">
+	<ion-list  ng-repeat="vid in episodes">
 		<ion-item menu-close href="#/app/anime/{{anime_pick.ani_url}}/{{vid.id}}">
-		Episode - {{vid.id}}
+		Episode - {{episodes.episode}}
 		</ion-item>
 	</ion-list>
 </ion-content>

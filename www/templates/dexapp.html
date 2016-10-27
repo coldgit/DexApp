@@ -7,10 +7,14 @@
   		</label>
   	</div>
     <ion-list>
+<<<<<<< HEAD
       <ion-item ng-repeat="anime in dash_list | filter:search"
+=======
+      <ion-item ng-repeat="anime in animes"
+>>>>>>> 3c00ecb467e2283d0728ab9273b65c5a1a8d2116
                 class="col-50  in-b"
                 href="#/app/anime/{{anime.ani_url}}">
-		   <img class="img" ng-src="{{anime.ani_banner}}">
+		   <img class="img" ng-src="http://localhost/DexApp-Server/{{anime.img_src}}">
       </ion-item>
     </ion-list>
   </ion-content>

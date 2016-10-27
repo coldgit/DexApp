@@ -1,5 +1,6 @@
 angular.module('starter.services', [])
 
+<<<<<<< HEAD
 .factory('Anime_list', function($rootScope) {
   // Might use a resource here that returns a JSON array
 
@@ -228,9 +229,25 @@ return {
       return credentials;
     },
    
+=======
+.factory('Anime_list', function($http,$rootScope) {
+   return {
+>>>>>>> 3c00ecb467e2283d0728ab9273b65c5a1a8d2116
     all: function()
     {
-      return anime_lists;
+      $http({
+             method:'GET',
+             url: 'http://localhost/DexApp-Server/anime',
+             headers: { 'Content-Type' : 'application/x-www-form-urlencoded'},
+           }).then(
+             function(resp){
+                 console.log(resp.data);
+                 $rootScope.animes = resp.data;
+                 $rootScope.$broadcast();
+             },
+             function(err){
+               console.log(err);
+             });
     },
     remove: function(id)
     {
@@ -238,14 +255,31 @@ return {
     },
     get: function(_url)
     {
-      for (var i = 0; i < anime_lists.length; i++)
-      {
-        if (anime_lists[i].ani_url === _url)
-        {
-          return anime_lists[i];
-        }
-      }
-      return null;
+      $http({
+             method:'GET',
+             url: 'http://localhost/DexApp-Server/anime/'+_url,
+             headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+           }).then(
+             function(resp){
+                 console.log(resp.data[0]);
+                 $rootScope.anime = resp.data[0];
+                 // $location.path('anime/'+$rootScope.anime.ani_url);
+             },
+             function(err){
+               console.log(err);
+             });
+       $http({
+             method:'GET',
+             url: 'http://localhost/DexApp-Server/anime/'+_url+'/episodes',
+             headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+           }).then(
+             function(resp){
+                 console.log(resp.data);
+                $rootScope.episodes = resp.data;
+             },
+             function(err){
+               console.log(err);
+             });
     },
       get_epi: function(_url,epi)
       {
